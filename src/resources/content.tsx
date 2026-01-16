@@ -1,49 +1,52 @@
-import { About, Blog, Gallery, Home, Newsletter, Person, Social, Work } from "@/types";
+import {
+  About,
+  Blog,
+  Gallery,
+  Home,
+  Newsletter,
+  Person,
+  Social,
+  Work,
+} from "@/types";
 import { Line, Row, Text } from "@once-ui-system/core";
 
 const person: Person = {
-  firstName: "Selene",
-  lastName: "Yu",
-  name: `Selene Yu`,
-  role: "Design Engineer",
-  avatar: "/images/avatar.jpg",
-  email: "example@gmail.com",
-  location: "Asia/Jakarta", // Expecting the IANA time zone identifier, e.g., 'Europe/Vienna'
-  languages: ["English", "Bahasa"], // optional: Leave the array empty if you don't want to display languages
+  firstName: "Pablo",
+  lastName: "Cruz",
+  name: `Pablo Cruz`,
+  role: "Senior FullStack Software Engineer",
+  avatar: "/images/avatar-2.jpeg",
+  email: "vinicius.pablo.18@gmail.com",
+  location: "America/Fortaleza",
+  languages: ["English", "Portuguese"],
+  phone: "5586999014957",
 };
 
+const whatsappLink = `https://wa.me/${person.phone}?text=Hey,%20let's%20talk%20about%20a%20project!`;
+
 const newsletter: Newsletter = {
-  display: true,
+  display: false,
   title: <>Subscribe to {person.firstName}'s Newsletter</>,
   description: <>My weekly newsletter about creativity and engineering</>,
 };
 
 const social: Social = [
-  // Links are automatically displayed.
-  // Import new icons in /once-ui/icons.ts
-  // Set essentials: true for links you want to show on the about page
+  {
+    name: "WhatsApp",
+    icon: "whatsapp",
+    link: whatsappLink,
+    essential: true,
+  },
   {
     name: "GitHub",
     icon: "github",
-    link: "https://github.com/once-ui-system",
+    link: "https://github.com/pabloVinicius",
     essential: true,
   },
   {
     name: "LinkedIn",
     icon: "linkedin",
-    link: "https://www.linkedin.com/company/once-ui/",
-    essential: true,
-  },
-  {
-    name: "Instagram",
-    icon: "instagram",
-    link: "https://www.instagram.com/once_ui/",
-    essential: false,
-  },
-  {
-    name: "Threads",
-    icon: "threads",
-    link: "https://www.threads.com/@once_ui",
+    link: "https://www.linkedin.com/in/pablo-cruz-17901a177/",
     essential: true,
   },
   {
@@ -60,24 +63,20 @@ const home: Home = {
   label: "Home",
   title: `${person.name}'s Portfolio`,
   description: `Portfolio website showcasing my work as a ${person.role}`,
-  headline: <>Building bridges between design and code</>,
+  headline: (
+    <>Turning your ideas into amazing applications. Wherever you are.</>
+  ),
   featured: {
-    display: true,
-    title: (
-      <Row gap="12" vertical="center">
-        <strong className="ml-4">Once UI</strong>{" "}
-        <Line background="brand-alpha-strong" vert height="20" />
-        <Text marginRight="4" onBackground="brand-medium">
-          Featured work
-        </Text>
-      </Row>
-    ),
-    href: "/work/building-once-ui-a-customizable-design-system",
+    display: false,
+    title: <></>,
+    href: "",
   },
   subline: (
     <>
-    I'm Selene, a design engineer at <Text as="span" size="xl" weight="strong">ONCE UI</Text>, where I craft intuitive <br /> user experiences. After hours, I build my own projects.
-</>
+      I'm Pablo, a Senior FullStack Software Engineer from Brazil with 7+ years
+      of experience building accessible, scalable, and performant web
+      applications.
+    </>
   ),
 };
 
@@ -95,16 +94,23 @@ const about: About = {
   },
   calendar: {
     display: true,
-    link: "https://cal.com",
+    link: "https://calendly.com/vinicius-pablo-18",
+  },
+  whatsapp: {
+    display: true,
+    link: whatsappLink,
   },
   intro: {
     display: true,
     title: "Introduction",
     description: (
       <>
-        Selene is a Jakarta-based design engineer with a passion for transforming complex challenges
-        into simple, elegant design solutions. Her work spans digital interfaces, interactive
-        experiences, and the convergence of design and technology.
+        I'm a Senior FullStack Software Engineer with 7+ years of experience
+        building performant, accessible, and scalable web interfaces. Passionate
+        about modern frontend architecture, design systems, and performance
+        optimization. Adept at translating business needs into intuitive digital
+        experiences. Experienced in startup environments, cross-functional
+        teams, and leveraging AI tools for faster, smarter development.
       </>
     ),
   },
@@ -113,41 +119,194 @@ const about: About = {
     title: "Work Experience",
     experiences: [
       {
-        company: "FLY",
-        timeframe: "2022 - Present",
-        role: "Senior Design Engineer",
+        company: "SelectStar",
+        timeframe: "2023 - 2025",
+        role: "Senior Frontend Engineer",
         achievements: [
           <>
-            Redesigned the UI/UX for the FLY platform, resulting in a 20% increase in user
-            engagement and 30% faster load times.
+            Re-architected the data lineage and ERD systems using React Flow,
+            enabling advanced node interactions, custom styling, and efficient
+            parsing of complex datasets.
           </>,
           <>
-            Spearheaded the integration of AI tools into design workflows, enabling designers to
-            iterate 50% faster.
+            Spearheaded a complete UI overhaul, aligning the interface with
+            modern UX standards—boosting discoverability of configurations,
+            datasets, and documentation.
+          </>,
+          <>
+            Leveraged AI tools, including Cursor, GitHub Copilot, and various
+            LLMs (GPT and Anthropic models) to improve development speed, code
+            quality, automated refactors, and test coverage.
+          </>,
+          <>
+            Operate in an AI-forward engineering environment where tool-assisted
+            workflows are key to improving team efficiency and product velocity.
+          </>,
+          <>
+            Led performance audits and optimizations via Chrome DevTools and
+            bundle analysis, reducing app load time and improving
+            responsiveness.
+          </>,
+          <>
+            Refactored legacy components and improved modularity and
+            maintainability across the codebase.
+          </>,
+          <>
+            Implemented WebWorkers for parsing large datasets asynchronously,
+            resulting in significantly faster rendering.
+          </>,
+          <>
+            Co-developed the new Chrome extension using content script
+            architecture to improve modularity and cross-page interactions.
+          </>,
+          <>
+            Maintained high test coverage through Jest and React Testing Library
+            to ensure stability in production environments.
           </>,
         ],
         images: [
-          // optional: leave the array empty if you don't want to display images
           {
-            src: "/images/projects/project-01/cover-01.jpg",
-            alt: "Once UI Project",
+            src: "/images/projects/selects-dashboard.png",
+            alt: "Select Star Dashboard Project",
+            width: 16,
+            height: 9,
+          },
+          {
+            src: "/images/projects/selects-lineage.png",
+            alt: "Select Star Lineage Project",
             width: 16,
             height: 9,
           },
         ],
       },
       {
-        company: "Creativ3",
-        timeframe: "2018 - 2022",
-        role: "Lead Designer",
+        company: "Minded",
+        timeframe: "2022 - 2023",
+        role: "Frontend Engineer",
         achievements: [
           <>
-            Developed a design system that unified the brand across multiple platforms, improving
-            design consistency by 40%.
+            Developed web applications for patients and physicians, including
+            features for scheduling appointments, prescription management,
+            patient follow-ups, and in-app messaging.
           </>,
           <>
-            Led a cross-functional team to launch a new product line, contributing to a 15% increase
-            in overall company revenue.
+            Built and maintained front-end and back-end systems using
+            technologies like React, Redux, Context API, Next.js, Nest.js, and
+            Styled-Components.
+          </>,
+          <>
+            Improved unit test coverage by 70% using React Testing Library and
+            Jest, while optimizing and refactoring codebases.
+          </>,
+          <>
+            Conducted technical discoveries to design and implement scalable
+            solutions for new product features.
+          </>,
+          <>
+            Thrived in a dynamic startup environment, adapting to rapid changes
+            and ambiguity.
+          </>,
+        ],
+        images: [],
+      },
+      {
+        company: "Kobe - Global Software House",
+        timeframe: "2021 - 2022",
+        role: "Frontend Engineer",
+        achievements: [
+          <>
+            Developed mobile-first web applications for Agibank, a Brazilian
+            digital bank, impacting over 1 million users.
+          </>,
+          <>
+            Created and maintained Agibank's official design system, leveraging
+            ReactJS, TypeScript, Rush Monorepo, Tailwind CSS, and WAI-ARIA
+            standards to ensure accessible and reusable components.
+          </>,
+          <>
+            Implemented comprehensive testing frameworks, including unit tests
+            with React Testing Library, integration and end-to-end tests with
+            Cypress, and visual regression tests with Chromatic, ensuring
+            component reliability and consistency.
+          </>,
+          <>
+            Led the development of scalable, highly tested mobile-first web apps
+            integrated into native iOS and Android platforms, preserving a
+            seamless user experience using Next.js, MSW, Context API, and
+            Cypress.
+          </>,
+          <>
+            Designed and built backend-for-frontend (BFF) APIs for efficient
+            integration with microservices, utilizing NestJS, MongoDB, and
+            Jenkins.
+          </>,
+          <>
+            Collaborated with architects to define project designs and
+            requirements, ensuring alignment with technical and business goals.
+          </>,
+        ],
+        images: [],
+      },
+      {
+        company:
+          "FDTE - Fundação para o Desenvolvimento Tecnológico da Engenharia",
+        timeframe: "2020 - 2021",
+        role: "Frontend Engineer",
+        achievements: [
+          <>
+            Served as a front-end engineer for Software Express, a Brazilian
+            leader in financial and payment technology and part of Fiserv.
+          </>,
+          <>
+            Developed web dashboards for financial reconciliation between credit
+            card companies and client businesses using ReactJS, Next.js, Redux,
+            Sass, and Storybook.
+          </>,
+          <>
+            Automated end-to-end tests with BDD methodology using WebdriverIO
+            and Cucumber, ensuring robust and user-friendly features.
+          </>,
+          <>
+            Designed and prototyped a SaaS platform leveraging micro-frontend
+            architecture with Webpack Module Federation.
+          </>,
+          <>
+            Enhanced project performance by implementing caching strategies and
+            minimizing unnecessary API calls.
+          </>,
+          <>
+            Contributed to internationalization and analytics tagging using
+            Google Analytics and Google Tag Manager.
+          </>,
+        ],
+        images: [],
+      },
+      {
+        company: "GoNuvem",
+        timeframe: "2017 - 2020",
+        role: "Co-founder and Frontend Engineer",
+        achievements: [
+          <>
+            Contributed to 15+ projects, including SPAs, dashboards, WordPress
+            websites, and a complete clinic management system.
+          </>,
+          <>
+            Built and maintained SPAs and Progressive Web Apps leveraging
+            technologies like Next.js, WebSockets, WebPush Protocol, GraphQL,
+            REST APIs, Redux, and styled-components.
+          </>,
+          <>
+            Implemented CI/CD pipelines using Bitbucket Pipelines for
+            streamlined development workflows.
+          </>,
+          <>
+            Deployed and managed applications with hosting and cloud services
+            such as Heroku, Netlify, AWS S3, AWS CloudFront, Cloudflare, and
+            Cloudinary.
+          </>,
+          <>
+            Optimized application performance and bundles using Chrome Dev
+            Tools, Google Lighthouse, and Webpack Bundle Analyzer.
           </>,
         ],
         images: [],
@@ -159,17 +318,13 @@ const about: About = {
     title: "Studies",
     institutions: [
       {
-        name: "University of Jakarta",
-        description: <>Studied software engineering.</>,
-      },
-      {
-        name: "Build the Future",
-        description: <>Studied online marketing and personal branding.</>,
+        name: "Federal University of Piauí",
+        description: <>BSc in Computer Science</>,
       },
     ],
   },
   technical: {
-    display: true, // set to false to hide this section
+    display: false, // set to false to hide this section
     title: "Technical skills",
     skills: [
       {
@@ -244,8 +399,8 @@ const blog: Blog = {
 const work: Work = {
   path: "/work",
   label: "Work",
-  title: `Projects – ${person.name}`,
-  description: `Design and dev projects by ${person.name}`,
+  title: "Some Projects I've Worked On",
+  description: `Web development projects by ${person.name}`,
   // Create new project pages by adding a new .mdx file to app/blog/posts
   // All projects will be listed on the /home and /work routes
 };
@@ -255,50 +410,7 @@ const gallery: Gallery = {
   label: "Gallery",
   title: `Photo gallery – ${person.name}`,
   description: `A photo collection by ${person.name}`,
-  // Images by https://lorant.one
-  // These are placeholder images, replace with your own
-  images: [
-    {
-      src: "/images/gallery/horizontal-1.jpg",
-      alt: "image",
-      orientation: "horizontal",
-    },
-    {
-      src: "/images/gallery/vertical-4.jpg",
-      alt: "image",
-      orientation: "vertical",
-    },
-    {
-      src: "/images/gallery/horizontal-3.jpg",
-      alt: "image",
-      orientation: "horizontal",
-    },
-    {
-      src: "/images/gallery/vertical-1.jpg",
-      alt: "image",
-      orientation: "vertical",
-    },
-    {
-      src: "/images/gallery/vertical-2.jpg",
-      alt: "image",
-      orientation: "vertical",
-    },
-    {
-      src: "/images/gallery/horizontal-2.jpg",
-      alt: "image",
-      orientation: "horizontal",
-    },
-    {
-      src: "/images/gallery/horizontal-4.jpg",
-      alt: "image",
-      orientation: "horizontal",
-    },
-    {
-      src: "/images/gallery/vertical-3.jpg",
-      alt: "image",
-      orientation: "vertical",
-    },
-  ],
+  images: [],
 };
 
 export { person, social, newsletter, home, about, blog, work, gallery };

@@ -27,6 +27,7 @@ export type Person = {
   location: IANATimeZone;
   /** Languages spoken */
   languages?: string[];
+  phone: string;
 };
 
 /**
@@ -125,6 +126,12 @@ export interface About extends BasePageConfig {
     /** Whether to display the calendar */
     display: boolean;
     /** Link to the calendar */
+    link: string;
+  };
+  whatsapp: {
+    /** Whether to display the whatsapp */
+    display: boolean;
+    /** Link to the whatsapp */
     link: string;
   };
   /** Introduction section */
